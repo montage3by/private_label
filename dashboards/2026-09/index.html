@@ -1,0 +1,474 @@
+<title>Private Label · Сентябрь 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Unbounded:wght@500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: report column (max 1120px) — header, KPI strip, two-up chart grid, channel panels for Ads and SEO, action list. */
+:root {
+  --bg: #f4f5f8;
+  --surface: #ffffff;
+  --ink: #131a2e;
+  --ink-2: #4b5268;
+  --ink-3: #7a8094;
+  --line: #e2e4ec;
+  --grid: #eceef3;
+  --accent: #1d3a8a;
+  --s1: #2a78d6;
+  --s2: #eb6834;
+  --s3: #8a90a3;
+  --s1-soft: #cde2fb;
+  --good: #0f7a3d; --good-bg: #e3f4ea;
+  --warn: #9a6200; --warn-bg: #fdf1d8;
+  --crit: #b3261e; --crit-bg: #fbe5e3;
+  --f-display: "Unbounded", "Golos Text", system-ui, sans-serif;
+  --f-body: "Golos Text", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-data: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #10131c; --surface: #181c28; --ink: #eef0f6; --ink-2: #b7bccb; --ink-3: #8a90a3;
+    --line: #2a2f3e; --grid: #232836; --accent: #9db5f5;
+    --s1: #3987e5; --s2: #d95926; --s3: #6f7589; --s1-soft: #1c5cab;
+    --good: #6fd39a; --good-bg: #173726; --warn: #f2c063; --warn-bg: #3a2c10; --crit: #f19a94; --crit-bg: #3d1a18;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #10131c; --surface: #181c28; --ink: #eef0f6; --ink-2: #b7bccb; --ink-3: #8a90a3;
+  --line: #2a2f3e; --grid: #232836; --accent: #9db5f5;
+  --s1: #3987e5; --s2: #d95926; --s3: #6f7589; --s1-soft: #1c5cab;
+  --good: #6fd39a; --good-bg: #173726; --warn: #f2c063; --warn-bg: #3a2c10; --crit: #f19a94; --crit-bg: #3d1a18;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 15px; line-height: 1.5; }
+.wrap { max-width: 1120px; margin: 0 auto; padding-inline: 20px; padding-block: 28px 56px; display: grid; gap: 28px; }
+h1, h2, h3 { margin: 0; text-wrap: balance; }
+h1 { font-family: var(--f-display); font-weight: 600; font-size: clamp(24px, 4vw, 34px); letter-spacing: -0.01em; line-height: 1.15; }
+h2 { font-family: var(--f-display); font-weight: 500; font-size: 18px; }
+h3 { font-size: 15px; font-weight: 600; }
+p { margin: 0; }
+.eyebrow { font-size: 12px; text-transform: uppercase; letter-spacing: 0.09em; color: var(--ink-3); font-weight: 600; }
+.muted { color: var(--ink-2); }
+.small { font-size: 13px; }
+.num { font-family: var(--f-data); font-variant-numeric: tabular-nums; }
+
+header.top { display: flex; flex-wrap: wrap; gap: 16px 32px; align-items: end; justify-content: space-between; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
+header.top .meta { display: flex; flex-wrap: wrap; gap: 8px; }
+.tag { font-size: 12px; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--line); color: var(--ink-2); background: var(--surface); white-space: nowrap; }
+.tag b { color: var(--ink); font-weight: 600; }
+
+.kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.kpi { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; display: grid; gap: 6px; align-content: start; }
+.kpi .v { font-family: var(--f-display); font-size: 30px; font-weight: 500; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.kpi .v small { font-family: var(--f-body); font-size: 14px; color: var(--ink-3); font-weight: 500; }
+.kpi .d { font-size: 13px; color: var(--ink-2); }
+
+.pill { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 999px; white-space: nowrap; }
+.pill.good { color: var(--good); background: var(--good-bg); }
+.pill.warn { color: var(--warn); background: var(--warn-bg); }
+.pill.crit { color: var(--crit); background: var(--crit-bg); }
+.pill.flat { color: var(--ink-2); background: var(--grid); }
+
+.grid2 { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 20px; display: grid; gap: 14px; align-content: start; min-width: 0; }
+.panel-head { display: flex; flex-wrap: wrap; gap: 6px 16px; justify-content: space-between; align-items: baseline; }
+.chart { position: relative; width: 100%; }
+.chart svg { display: block; width: 100%; height: auto; overflow: visible; }
+.chart text { fill: var(--ink-3); font-family: var(--f-body); font-size: 11px; }
+.chart .lbl-strong { fill: var(--ink); font-weight: 600; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 13px; color: var(--ink-2); }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+.tip { position: absolute; pointer-events: none; background: var(--ink); color: var(--bg); font-size: 12px; padding: 6px 9px; border-radius: 6px; white-space: nowrap; transform: translate(-50%, calc(-100% - 8px)); z-index: 5; }
+.note { font-size: 13px; color: var(--ink-2); border-left: 3px solid var(--s2); padding: 2px 0 2px 10px; }
+
+.section-head { display: grid; gap: 4px; }
+.channel { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 16px; }
+.metrics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.metric { border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; display: grid; gap: 2px; }
+.metric label { font-size: 12px; color: var(--ink-3); font-weight: 500; }
+.metric input { font-family: var(--f-data); font-size: 18px; font-variant-numeric: tabular-nums; border: 0; border-bottom: 1px dashed var(--line); background: transparent; color: var(--ink); padding: 2px 0; width: 100%; min-width: 0; }
+.metric input:focus { outline: none; border-bottom-color: var(--s1); }
+.metric input::placeholder { color: var(--ink-3); opacity: .6; }
+.metric.calc { background: var(--bg); border-style: dashed; }
+.metric.calc .out { font-family: var(--f-data); font-size: 18px; font-variant-numeric: tabular-nums; }
+
+.events { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.events li { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 12px; align-items: start; font-size: 14px; }
+.events .date { font-family: var(--f-data); font-size: 12px; color: var(--ink-3); padding-top: 2px; }
+
+.tbl-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th { text-align: left; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3); font-weight: 600; padding: 0 10px 8px 0; border-bottom: 1px solid var(--line); }
+td { padding: 9px 10px 9px 0; border-bottom: 1px solid var(--grid); vertical-align: top; }
+td.d { font-family: var(--f-data); font-size: 12px; color: var(--ink-3); white-space: nowrap; }
+td .kw { display: block; font-size: 12px; color: var(--ink-3); margin-top: 2px; }
+
+.actions { display: grid; gap: 10px; counter-reset: a; margin: 0; padding: 0; list-style: none; }
+.actions li { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 12px; align-items: start; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; }
+.actions li > div { display: grid; gap: 2px; }
+.adskpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+.adskpis .metric { background: var(--surface); }
+.metric .out { font-family: var(--f-data); font-size: 18px; font-variant-numeric: tabular-nums; }
+th.r, td.r { text-align: right; padding-left: 10px; padding-right: 0; white-space: nowrap; }
+tr.total td { font-weight: 600; border-bottom: 0; }
+.bars2 { display: grid; gap: 8px; }
+.bars2 > div:not(.legend) { display: grid; grid-template-columns: 64px minmax(0, 1fr); align-items: center; gap: 10px; }
+.split { display: flex; gap: 2px; height: 12px; }
+.split i { display: block; height: 100%; }
+.split i:first-child { border-radius: 4px 0 0 4px; } .split i:last-child { border-radius: 0 4px 4px 0; }
+@media (max-width: 860px) { .adskpis { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.foot { font-size: 12px; color: var(--ink-3); display: grid; gap: 4px; border-top: 1px solid var(--line); padding-top: 16px; }
+
+@media (max-width: 860px) {
+  .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid2, .channel { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 420px) {
+  .wrap { padding-inline: 16px; }
+  .kpi .v { font-size: 26px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .bar { transition: opacity .15s; }
+}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div style="display:grid;gap:8px">
+      <span class="eyebrow">privatelabel.lv · отчёт за месяц</span>
+      <h1>Private Label — сентябрь 2026</h1>
+      <p class="muted">Google Ads и SEO. Производство белья и купальников под ключ, Лиепая, Латвия.</p>
+    </div>
+    <div class="meta">
+      <span class="tag">Период <b>01.09 – 30.09.2026</b></span>
+      <span class="tag">Сравнение <b>с августом</b></span>
+    </div>
+  </header>
+
+  <section class="kpis" aria-label="Ключевые показатели">
+    <div class="kpi">
+      <span class="eyebrow">Заявки с формы</span>
+      <span class="v">50 <small>/ 49 уник.</small></span>
+      <span class="d"><span class="pill flat">0% к августу</span> в августе 50</span>
+    </div>
+    <div class="kpi">
+      <span class="eyebrow">Из Европы</span>
+      <span class="v">65%</span>
+      <span class="d"><span class="pill good">▲ +5 п.п.</span> 32 из 49; Нигерия: 8</span>
+    </div>
+    <div class="kpi">
+      <span class="eyebrow">Google Ads</span>
+      <span class="v">€527 <small>/ 497 кликов</small></span>
+      <span class="d"><span class="pill crit">● 0 конверсий в Ads</span> CPC €1,06</span>
+    </div>
+    <div class="kpi">
+      <span class="eyebrow">Статьи в блоге</span>
+      <span class="v">8 <small>/ 8 по плану</small></span>
+      <span class="d"><span class="pill good">✓ План выполнен</span> 2 статьи в неделю</span>
+    </div>
+  </section>
+
+  <section class="grid2">
+    <div class="panel">
+      <div class="panel-head">
+        <h2>Заявки по месяцам</h2>
+        <span class="small muted">окт 2025 – сен 2026</span>
+      </div>
+      <div class="chart" id="ch-monthly"></div>
+      <p class="small muted">Сентябрь на уровне августа и ниже среднего за 12 мес. (<span class="num">74</span>). Пики пришлись на ноябрь и май.</p>
+    </div>
+    <div class="panel">
+      <div class="panel-head">
+        <h2>Заявки по дням сентября</h2>
+        <span class="small muted">уникальные, по дате заявки</span>
+      </div>
+      <div class="chart" id="ch-daily"></div>
+      <div class="legend"><span><i style="background:var(--s1)"></i>Все страны, кроме Нигерии</span><span><i style="background:var(--s2)"></i>Нигерия</span></div>
+      <p class="note">22–24 сентября пришло 17 заявок, из них 8 из Нигерии. Без этого всплеска месяц дал бы 41 заявку.</p>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="panel-head">
+      <h2>География заявок</h2>
+      <span class="small muted">49 уникальных заявок · топ стран</span>
+    </div>
+    <div class="chart" id="ch-geo"></div>
+    <div class="legend">
+      <span><i style="background:var(--s1)"></i>Европа и Великобритания: 32</span>
+      <span><i style="background:var(--s2)"></i>Нигерия: 8</span>
+      <span><i style="background:var(--s3)"></i>Другие страны: 9</span>
+    </div>
+  </section>
+
+  <section style="display:grid;gap:14px">
+    <div class="section-head">
+      <span class="eyebrow">Канал 1</span>
+      <h2>Google Ads · аккаунт Private Label</h2>
+    </div>
+    <div class="adskpis">
+      <div class="metric"><label>Расход</label><span class="out">€526,59</span></div>
+      <div class="metric"><label>Показы</label><span class="out">3 143</span></div>
+      <div class="metric"><label>Клики</label><span class="out">497</span></div>
+      <div class="metric"><label>CTR</label><span class="out">15,81%</span></div>
+      <div class="metric"><label>CPC</label><span class="out">€1,06</span></div>
+      <div class="metric"><label>Конверсии в Ads</label><span class="out" style="color:var(--crit)">0</span></div>
+      <div class="metric calc"><label>CPL по заявкам с формы</label><span class="out">€10,53</span></div>
+      <div class="metric calc"><label>Клик → заявка</label><span class="out">10,1%</span></div>
+    </div>
+    <p class="small muted">CPL и конверсия в заявку посчитаны по всем 50 заявкам с формы. Часть из них пришла из SEO, поэтому реальный CPL рекламы выше. Точнее можно будет посчитать, когда заработает отслеживание конверсий.</p>
+    <div class="panel">
+        <div class="panel-head"><h3>Активные кампании</h3><span class="small muted">2 из 11, остальные без показов</span></div>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>Кампания</th><th class="r">Показы</th><th class="r">Клики</th><th class="r">CTR</th><th class="r">Расход</th><th class="r">CPC</th></tr></thead>
+            <tbody>
+              <tr><td>PL UK + NL 2026<span class="kw">Поиск · Великобритания и Нидерланды</span></td><td class="r num">2 023</td><td class="r num">413</td><td class="r num">20,42%</td><td class="r num">€299,56</td><td class="r num">€0,73</td></tr>
+              <tr><td>BWcampaign EU+UAE EN+RU (основная)<span class="kw">Поиск · Европа и ОАЭ · ограничена бюджетом</span></td><td class="r num">1 120</td><td class="r num">84</td><td class="r num">7,50%</td><td class="r num">€227,03</td><td class="r num">€2,70</td></tr>
+              <tr class="total"><td>Итого</td><td class="r num">3 143</td><td class="r num">497</td><td class="r num">15,81%</td><td class="r num">€526,59</td><td class="r num">€1,06</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="bars2" aria-label="Доля расхода и кликов по кампаниям">
+          <div><span class="small muted">Расход</span><div class="split"><i style="width:56.9%;background:var(--s1)"></i><i style="width:43.1%;background:var(--s2)"></i></div></div>
+          <div><span class="small muted">Клики</span><div class="split"><i style="width:83.1%;background:var(--s1)"></i><i style="width:16.9%;background:var(--s2)"></i></div></div>
+          <div class="legend"><span><i style="background:var(--s1)"></i>PL UK + NL 2026</span><span><i style="background:var(--s2)"></i>BWcampaign EU+UAE</span></div>
+        </div>
+        <p class="small muted">UK + NL даёт 83% кликов при 57% расхода, клик в 3,7 раза дешевле. CTR 20% для поиска очень высокий. Стоит проверить поисковые запросы: нет ли там нерелевантного или бот-трафика.</p>
+      </div>
+    <div class="channel">
+      <div class="panel">
+        <div class="panel-head"><h3>Клики по дням</h3><span class="small muted">приблизительно, по графику кабинета</span></div>
+        <div class="chart" id="ch-clicks"></div>
+        <p class="note">Три всплеска: 11–13.09, 23–24.09 и 29–30.09. Второй совпадает с волной заявок из Нигерии. Вне всплесков кампании дают 1–12 кликов в день.</p>
+      </div>
+      <div class="panel">
+        <h3>Состояние аккаунта</h3>
+        <ul class="events">
+          <li><span class="date">весь месяц</span><span><span class="pill crit">● 0 конверсий</span> В Google Ads не записана ни одна конверсия, хотя с формы пришло 50 заявок. Отслеживание отправки формы не работает, и стратегия «Максимум конверсий» обучается вслепую.</span></li>
+          <li><span class="date">сейчас</span><span><span class="pill warn">● Мало средств</span> На предоплаченном балансе заканчиваются деньги. Без пополнения кампании остановятся.</span></li>
+          <li><span class="date">23.09</span><span><span class="pill crit">● Отклонено</span> 1 ассет по правилам Capitalization и Non-family safe. Нужно поправить текст в Policy Manager.</span></li>
+          <li><span class="date">19.09</span><span>Аккаунту открыт доступ к Customer Match после верификации рекламодателя.</span></li>
+          <li><span class="date">7.09–4.10</span><span>Доля показов выросла с 16% до 17%, по запросу «lingerie vendors» с 11% до 14%. У shopify.com за тот же период доля выросла с 10% до 31%.</span></li>
+          <li><span class="date">—</span><span>Оптимизационный показатель аккаунта 91,2%.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section style="display:grid;gap:14px">
+    <div class="section-head">
+      <span class="eyebrow">Канал 2</span>
+      <h2>SEO · блог и органический поиск</h2>
+    </div>
+    <div class="channel">
+      <div class="panel">
+        <div class="panel-head"><h3>Search Console</h3><span class="pill warn">● Нужна выгрузка</span></div>
+        <p class="small muted">Ежемесячный отчёт Search Console по privatelabel.lv в почту не приходил. Введите данные из «Эффективности» за сентябрь.</p>
+        <div class="metrics">
+          <div class="metric"><label for="sc-clicks">Клики</label><input id="sc-clicks" inputmode="numeric" placeholder="0"></div>
+          <div class="metric"><label for="sc-impr">Показы</label><input id="sc-impr" inputmode="numeric" placeholder="0"></div>
+          <div class="metric"><label for="sc-pos">Средняя позиция</label><input id="sc-pos" inputmode="decimal" placeholder="0"></div>
+          <div class="metric calc"><label>CTR в поиске</label><span class="out" id="o-sc-ctr">—</span></div>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-head"><h3>Опубликованные статьи</h3><span class="pill good">✓ 8 из 8</span></div>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>Дата</th><th>Тема и ключевые запросы</th></tr></thead>
+            <tbody>
+              <tr><td class="d">03.09</td><td>Зачем брендам белья и купальников следить за текстильными выставками<span class="kw">textile trade shows Europe, lingerie manufacturer Europe</span></td></tr>
+              <tr><td class="d">07.09</td><td>Как спланировать первый производственный заказ: модели, цвета, размеры<span class="kw">first clothing production order, clothing size ratio</span></td></tr>
+              <tr><td class="d">10.09</td><td>Сколько времени занимает производство коллекции одежды<span class="kw">clothing production timeline, garment production lead time</span></td></tr>
+              <tr><td class="d">14.09</td><td>Как сравнить предложения от разных производителей одежды<span class="kw">how to compare clothing manufacturers, apparel production quotation</span></td></tr>
+              <tr><td class="d">17.09</td><td>Как создать мудборд для коллекции белья или купальников<span class="kw">lingerie mood board, swimwear moodboard</span></td></tr>
+              <tr><td class="d">21.09</td><td>Сколько моделей должно быть в первой коллекции белья<span class="kw">first lingerie collection, how many pieces in a clothing collection</span></td></tr>
+              <tr><td class="d">24.09</td><td>Сколько времени нужно, чтобы создать бренд белья или купальников<span class="kw">how to start a lingerie brand, swimwear brand development</span></td></tr>
+              <tr><td class="d">28.09</td><td>Задержки материалов и доставки: как защитить сроки производства<span class="kw">clothing manufacturing delays, European lingerie production</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="display:grid;gap:14px">
+    <div class="section-head">
+      <span class="eyebrow">Октябрь</span>
+      <h2>Что сделать дальше</h2>
+    </div>
+    <ul class="actions">
+      <li><span class="pill crit">Ads</span><div><h3>Починить отслеживание конверсий</h3><p class="small muted">Настроить конверсию на отправку формы (тег Google Ads или импорт из GA4) и проверить её тестовой заявкой. Пока конверсии не считаются, автостратегия не знает, какие клики приносят заявки.</p></div></li>
+      <li><span class="pill crit">Ads</span><div><h3>Пополнить баланс</h3><p class="small muted">Предоплаченные средства на исходе. При текущем темпе нужно около €530 в месяц.</p></div></li>
+      <li><span class="pill crit">Ads</span><div><h3>Исключить Нигерию и проверить места показа</h3><p class="small muted">8 из 49 заявок пришли из страны, где клиентов нет, и совпали с пиком кликов 23–24.09. Задать гео «присутствие», а не «интерес», проверить поисковые запросы и IP в эти дни.</p></div></li>
+      <li><span class="pill crit">Ads</span><div><h3>Исправить отклонённый ассет</h3><p class="small muted">Убрать капслок и формулировки, которые Google относит к Non-family safe (актуально для белья и купальников).</p></div></li>
+      <li><span class="pill warn">Аналитика</span><div><h3>Передавать utm_source в письмо и таблицу</h3><p class="small muted">Поля utm уже есть в форме, но в сентябре они пустые. Без них нельзя посчитать вклад Ads и SEO по отдельности.</p></div></li>
+      <li><span class="pill warn">Качество</span><div><h3>Проставить статусы лидов за август и сентябрь</h3><p class="small muted">В таблице «Чек качества лидов» колонки «Статус» и «Статус коммуникации» пустые. Нужно для расчёта стоимости качественного лида.</p></div></li>
+      <li><span class="pill flat">Ads</span><div><h3>Перераспределить бюджет в пользу UK + NL</h3><p class="small muted">Основная кампания ограничена бюджетом, а клик в ней стоит €2,70 против €0,73. Сначала убедиться, что дешёвые клики UK + NL качественные.</p></div></li>
+      <li><span class="pill flat">Ads</span><div><h3>Запустить аудиторию Customer Match</h3><p class="small muted">Загрузить качественные лиды за прошлые месяцы и использовать их как сигнал для похожих аудиторий.</p></div></li>
+      <li><span class="pill flat">SEO</span><div><h3>Перелинковать сентябрьские статьи с лендингом</h3><p class="small muted">Статьи про сроки, первый заказ и сравнение фабрик закрывают вопросы перед заявкой. Добавить из них ссылки на форму и страницу кейсов.</p></div></li>
+    </ul>
+  </section>
+
+  <footer class="foot">
+    <span>Источники: таблица «Чек качества лидов Private label» (лист «Сентябрь», до 28.09) и письма с формы сайта за 28–30.09; контент-план блога; кабинет Google Ads за 01–30.09 (скриншоты), уведомления Google Ads.</span>
+    <span>Помесячные цифры взяты по листам таблицы и включают дубли. Уникальные заявки считаются по email.</span>
+  </footer>
+</div>
+
+<script>
+(function () {
+  const NS = 'http://www.w3.org/2000/svg';
+  const el = (tag, attrs, parent) => { const n = document.createElementNS(NS, tag); for (const k in attrs) n.setAttribute(k, attrs[k]); if (parent) parent.appendChild(n); return n; };
+  const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+
+  function tipFor(container) {
+    const t = document.createElement('div'); t.className = 'tip'; t.hidden = true; container.appendChild(t);
+    return {
+      show(html, x, y) { t.innerHTML = html; t.style.left = x + 'px'; t.style.top = y + 'px'; t.hidden = false; },
+      hide() { t.hidden = true; }
+    };
+  }
+  // Rounded-top bar path anchored to baseline
+  function barPath(x, y, w, h, r) {
+    r = Math.min(r, w / 2, h);
+    if (h <= 0) return '';
+    return `M${x},${y + h}V${y + r}Q${x},${y} ${x + r},${y}H${x + w - r}Q${x + w},${y} ${x + w},${y + r}V${y + h}Z`;
+  }
+  function hbarPath(x, y, w, h, r) {
+    r = Math.min(r, h / 2, w);
+    if (w <= 0) return '';
+    return `M${x},${y}H${x + w - r}Q${x + w},${y} ${x + w},${y + r}V${y + h - r}Q${x + w},${y + h} ${x + w - r},${y + h}H${x}Z`;
+  }
+
+  // Monthly
+  const monthly = [['окт', 83], ['ноя', 134], ['дек', 57], ['янв', 76], ['фев', 74], ['мар', 74], ['апр', 55], ['май', 109], ['июн', 60], ['июл', 62], ['авг', 50], ['сен', 50]];
+  function drawMonthly() {
+    const box = document.getElementById('ch-monthly'); box.innerHTML = '';
+    const W = 520, H = 220, m = { t: 18, r: 8, b: 26, l: 30 };
+    const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': 'Заявки по месяцам, октябрь 2025 – сентябрь 2026' }, box);
+    const max = 150, iw = W - m.l - m.r, ih = H - m.t - m.b;
+    const y = v => m.t + ih - v / max * ih;
+    [0, 50, 100, 150].forEach(v => {
+      el('line', { x1: m.l, x2: W - m.r, y1: y(v), y2: y(v), stroke: css('--grid'), 'stroke-width': 1 }, svg);
+      el('text', { x: m.l - 6, y: y(v) + 4, 'text-anchor': 'end' }, svg).textContent = v;
+    });
+    const avg = 74;
+    el('line', { x1: m.l, x2: W - m.r, y1: y(avg), y2: y(avg), stroke: css('--ink-3'), 'stroke-width': 1, 'stroke-dasharray': '3 3' }, svg);
+    el('text', { x: W - m.r, y: y(avg) - 5, 'text-anchor': 'end' }, svg).textContent = 'среднее 74';
+    const step = iw / monthly.length, bw = Math.min(26, step - 8);
+    const tip = tipFor(box);
+    monthly.forEach(([lab, v], i) => {
+      const x = m.l + i * step + (step - bw) / 2, last = i === monthly.length - 1;
+      el('path', { d: barPath(x, y(v), bw, y(0) - y(v), 4), fill: last ? css('--s1') : css('--s1-soft'), class: 'bar' }, svg);
+      const t = el('text', { x: x + bw / 2, y: H - 8, 'text-anchor': 'middle' }, svg); t.textContent = lab; if (last) t.setAttribute('class', 'lbl-strong');
+      if (last || v === 134) { const vl = el('text', { x: x + bw / 2, y: y(v) - 5, 'text-anchor': 'middle', class: 'lbl-strong' }, svg); vl.textContent = v; }
+      const hit = el('rect', { x: m.l + i * step, y: m.t, width: step, height: ih, fill: 'transparent' }, svg);
+      hit.addEventListener('mouseenter', () => { const r = box.getBoundingClientRect(), s = r.width / W; tip.show(`<b>${lab}${i < 3 ? ' 2025' : ' 2026'}</b>: ${v} заявок`, (x + bw / 2) * s, y(v) * s); });
+      hit.addEventListener('mouseleave', tip.hide);
+    });
+  }
+
+  // Daily (unique leads), [day, nonNigeria, nigeria]
+  const daily = {1:[3,0],2:[3,0],3:[1,0],4:[2,0],5:[1,0],7:[3,0],8:[2,0],9:[1,0],10:[1,0],12:[2,0],14:[2,0],16:[2,0],17:[2,0],19:[1,0],20:[1,0],22:[5,1],23:[3,5],24:[1,2],25:[2,0],28:[2,0],29:[1,0]};
+  function drawDaily() {
+    const box = document.getElementById('ch-daily'); box.innerHTML = '';
+    const W = 520, H = 220, m = { t: 18, r: 8, b: 26, l: 24 };
+    const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': 'Заявки по дням сентября 2026' }, box);
+    const max = 8, iw = W - m.l - m.r, ih = H - m.t - m.b;
+    const y = v => m.t + ih - v / max * ih;
+    [0, 4, 8].forEach(v => {
+      el('line', { x1: m.l, x2: W - m.r, y1: y(v), y2: y(v), stroke: css('--grid'), 'stroke-width': 1 }, svg);
+      el('text', { x: m.l - 6, y: y(v) + 4, 'text-anchor': 'end' }, svg).textContent = v;
+    });
+    const step = iw / 30, bw = Math.max(4, step - 4);
+    const tip = tipFor(box);
+    for (let d = 1; d <= 30; d++) {
+      const x = m.l + (d - 1) * step + (step - bw) / 2;
+      const [a, n] = daily[d] || [0, 0];
+      if (a) el('path', { d: n ? `M${x},${y(0)}V${y(a)}H${x + bw}V${y(0)}Z` : barPath(x, y(a), bw, y(0) - y(a), 3), fill: css('--s1') }, svg);
+      if (n) el('path', { d: barPath(x, y(a + n), bw, y(a) - y(a + n) - 2, 3), fill: css('--s2') }, svg);
+      if ([1, 8, 15, 22, 29].includes(d)) el('text', { x: x + bw / 2, y: H - 8, 'text-anchor': 'middle' }, svg).textContent = d + '.09';
+      const hit = el('rect', { x: m.l + (d - 1) * step, y: m.t, width: step, height: ih, fill: 'transparent' }, svg);
+      hit.addEventListener('mouseenter', () => { const r = box.getBoundingClientRect(), s = r.width / W; tip.show(`<b>${d} сентября</b>: ${a + n}${n ? ` (Нигерия ${n})` : ''}`, (x + bw / 2) * s, y(Math.max(a + n, 0.6)) * s); });
+      hit.addEventListener('mouseleave', tip.hide);
+    }
+    el('text', { x: m.l + 22.5 * step, y: y(8) + 2, 'text-anchor': 'middle', class: 'lbl-strong' }, svg).textContent = '8';
+  }
+
+  // Geo
+  const geo = [['Нидерланды', 6, 'eu'], ['Нигерия', 8, 'ng'], ['Великобритания', 5, 'eu'], ['Германия', 5, 'eu'], ['Франция', 3, 'eu'], ['Литва', 2, 'eu'], ['Швеция', 2, 'eu'], ['Бельгия', 2, 'eu'], ['Австралия', 2, 'ot'], ['Другие Европа (7 стран)', 7, 'eu'], ['Другие страны (7)', 7, 'ot']];
+  geo.sort((a, b) => (a[0].startsWith('Другие') - b[0].startsWith('Другие')) || b[1] - a[1]);
+  function drawGeo() {
+    const box = document.getElementById('ch-geo'); box.innerHTML = '';
+    const narrow = box.clientWidth < 560;
+    const W = narrow ? 420 : 1000, rowH = 24, m = { t: 4, r: 30, b: 4, l: narrow ? 150 : 190 };
+    const H = m.t + m.b + geo.length * rowH;
+    const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': 'География заявок за сентябрь' }, box);
+    const iw = W - m.l - m.r, max = 8;
+    const colors = { eu: css('--s1'), ng: css('--s2'), ot: css('--s3') };
+    const tip = tipFor(box);
+    geo.forEach(([name, v, reg], i) => {
+      const yy = m.t + i * rowH, bh = 14, w = v / max * iw;
+      const t = el('text', { x: m.l - 10, y: yy + bh / 2 + 6, 'text-anchor': 'end' }, svg); t.textContent = name; t.style.fill = css('--ink-2'); t.style.fontSize = '12px';
+      el('path', { d: hbarPath(m.l, yy + 3, w, bh, 4), fill: colors[reg] }, svg);
+      const vl = el('text', { x: m.l + w + 6, y: yy + bh / 2 + 7, class: 'lbl-strong' }, svg); vl.textContent = v;
+      const hit = el('rect', { x: 0, y: yy, width: W, height: rowH, fill: 'transparent' }, svg);
+      hit.addEventListener('mouseenter', () => { const r = box.getBoundingClientRect(), s = r.width / W; tip.show(`<b>${name}</b>: ${v} (${Math.round(v / 49 * 100)}%)`, (m.l + w / 2) * s, (yy + 3) * s); });
+      hit.addEventListener('mouseleave', tip.hide);
+    });
+  }
+
+  // Daily clicks, read off the Google Ads overview chart (approximate)
+  const clicks = [12,11,11,6,6,5,8,5,9,4,49,47,46,3,3,3,5,5,1,2,2,5,78,73,18,1,1,10,42,34];
+  function drawClicks() {
+    const box = document.getElementById('ch-clicks'); box.innerHTML = '';
+    const W = 520, H = 200, m = { t: 14, r: 10, b: 26, l: 26 };
+    const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': 'Клики Google Ads по дням сентября' }, box);
+    const max = 80, iw = W - m.l - m.r, ih = H - m.t - m.b;
+    const x = i => m.l + i / 29 * iw, y = v => m.t + ih - v / max * ih;
+    [0, 40, 80].forEach(v => {
+      el('line', { x1: m.l, x2: W - m.r, y1: y(v), y2: y(v), stroke: css('--grid'), 'stroke-width': 1 }, svg);
+      el('text', { x: m.l - 6, y: y(v) + 4, 'text-anchor': 'end' }, svg).textContent = v;
+    });
+    el('rect', { x: x(21) - 4, y: m.t, width: x(23) - x(21) + 8, height: ih, fill: css('--s2'), opacity: 0.12 }, svg);
+    const pts = clicks.map((v, i) => `${x(i)},${y(v)}`).join(' ');
+    el('polygon', { points: `${x(0)},${y(0)} ${pts} ${x(29)},${y(0)}`, fill: css('--s1'), opacity: 0.12 }, svg);
+    el('polyline', { points: pts, fill: 'none', stroke: css('--s1'), 'stroke-width': 2, 'stroke-linejoin': 'round' }, svg);
+    [0, 7, 14, 21, 28].forEach(i => el('text', { x: x(i), y: H - 8, 'text-anchor': 'middle' }, svg).textContent = (i + 1) + '.09');
+    el('text', { x: x(22) + 6, y: y(78) + 4, class: 'lbl-strong' }, svg).textContent = '≈78';
+    const tip = tipFor(box);
+    const dot = el('circle', { r: 4, fill: css('--s1'), stroke: css('--surface'), 'stroke-width': 2, visibility: 'hidden' }, svg);
+    const hit = el('rect', { x: m.l, y: m.t, width: iw, height: ih, fill: 'transparent' }, svg);
+    hit.addEventListener('mousemove', e => {
+      const r = box.getBoundingClientRect(), s = r.width / W;
+      const i = Math.max(0, Math.min(29, Math.round(((e.clientX - r.left) / s - m.l) / iw * 29)));
+      dot.setAttribute('cx', x(i)); dot.setAttribute('cy', y(clicks[i])); dot.setAttribute('visibility', 'visible');
+      tip.show(`<b>${i + 1} сентября</b>: ≈${clicks[i]} кликов`, x(i) * s, y(clicks[i]) * s);
+    });
+    hit.addEventListener('mouseleave', () => { tip.hide(); dot.setAttribute('visibility', 'hidden'); });
+  }
+
+  function drawAll() { drawMonthly(); drawDaily(); drawGeo(); drawClicks(); }
+  drawAll();
+  let rt; window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(drawGeo, 120); });
+  const mq = window.matchMedia('(prefers-color-scheme: dark)'); mq.addEventListener && mq.addEventListener('change', drawAll);
+  new MutationObserver(drawAll).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+  // Inputs → derived metrics
+  const KEY = 'pl-2026-09-inputs';
+  const ids = ['sc-clicks', 'sc-impr', 'sc-pos'];
+  const num = id => { const v = parseFloat(String(document.getElementById(id).value).replace(/\s/g, '').replace(',', '.')); return isFinite(v) ? v : null; };
+  const fmt = (v, d) => v.toLocaleString('ru-RU', { minimumFractionDigits: d, maximumFractionDigits: d });
+  function recalc() {
+    const sc = num('sc-clicks'), si = num('sc-impr');
+    document.getElementById('o-sc-ctr').textContent = si && sc != null ? fmt(sc / si * 100, 2) + '%' : '—';
+    const save = {}; ids.forEach(id => save[id] = document.getElementById(id).value);
+    try { localStorage.setItem(KEY, JSON.stringify(save)); } catch (e) {}
+  }
+  try { const s = JSON.parse(localStorage.getItem(KEY) || '{}'); ids.forEach(id => { if (s[id]) document.getElementById(id).value = s[id]; }); } catch (e) {}
+  ids.forEach(id => document.getElementById(id).addEventListener('input', recalc));
+  recalc();
+})();
+</script>
