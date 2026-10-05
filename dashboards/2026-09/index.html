@@ -16,6 +16,8 @@
   --s2: #eb6834;
   --s3: #8a90a3;
   --s1-soft: #cde2fb;
+  --s3b: #1baf7a;
+  --s4: #4a3aa7;
   --good: #0f7a3d; --good-bg: #e3f4ea;
   --warn: #9a6200; --warn-bg: #fdf1d8;
   --crit: #b3261e; --crit-bg: #fbe5e3;
@@ -27,7 +29,7 @@
   :root:not([data-theme="light"]) {
     --bg: #10131c; --surface: #181c28; --ink: #eef0f6; --ink-2: #b7bccb; --ink-3: #8a90a3;
     --line: #2a2f3e; --grid: #232836; --accent: #9db5f5;
-    --s1: #3987e5; --s2: #d95926; --s3: #6f7589; --s1-soft: #1c5cab;
+    --s1: #3987e5; --s2: #d95926; --s3: #6f7589; --s1-soft: #1c5cab; --s3b: #199e70; --s4: #9085e9;
     --good: #6fd39a; --good-bg: #173726; --warn: #f2c063; --warn-bg: #3a2c10; --crit: #f19a94; --crit-bg: #3d1a18;
     color-scheme: dark;
   }
@@ -35,7 +37,7 @@
 :root[data-theme="dark"] {
   --bg: #10131c; --surface: #181c28; --ink: #eef0f6; --ink-2: #b7bccb; --ink-3: #8a90a3;
   --line: #2a2f3e; --grid: #232836; --accent: #9db5f5;
-  --s1: #3987e5; --s2: #d95926; --s3: #6f7589; --s1-soft: #1c5cab;
+  --s1: #3987e5; --s2: #d95926; --s3: #6f7589; --s1-soft: #1c5cab; --s3b: #199e70; --s4: #9085e9;
   --good: #6fd39a; --good-bg: #173726; --warn: #f2c063; --warn-bg: #3a2c10; --crit: #f19a94; --crit-bg: #3d1a18;
   color-scheme: dark;
 }
@@ -117,6 +119,11 @@ tr.total td { font-weight: 600; border-bottom: 0; }
 .split i { display: block; height: 100%; }
 .split i:first-child { border-radius: 4px 0 0 4px; } .split i:last-child { border-radius: 0 4px 4px 0; }
 @media (max-width: 860px) { .adskpis { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.solo { display: grid; }
+.srclist { display: grid; gap: 8px; }
+.srclist > div { display: grid; grid-template-columns: 10px minmax(0, 1fr) auto 44px; gap: 10px; align-items: center; font-size: 14px; }
+.srclist i { width: 10px; height: 10px; border-radius: 3px; }
+.srclist b { font-weight: 600; } .srclist span.num { text-align: right; font-size: 13px; }
 .foot { font-size: 12px; color: var(--ink-3); display: grid; gap: 4px; border-top: 1px solid var(--line); padding-top: 16px; }
 
 @media (max-width: 860px) {
@@ -137,7 +144,7 @@ tr.total td { font-weight: 600; border-bottom: 0; }
     <div style="display:grid;gap:8px">
       <span class="eyebrow">privatelabel.lv · отчёт за месяц</span>
       <h1>Private Label — сентябрь 2026</h1>
-      <p class="muted">Google Ads и SEO. Производство белья и купальников под ключ, Лиепая, Латвия.</p>
+      <p class="muted">Google Ads и SEO. Производство белья и купальников под собственным брендом.</p>
     </div>
     <div class="meta">
       <span class="tag">Период <b>01.09 – 30.09.2026</b></span>
@@ -154,12 +161,12 @@ tr.total td { font-weight: 600; border-bottom: 0; }
     <div class="kpi">
       <span class="eyebrow">Из Европы</span>
       <span class="v">65%</span>
-      <span class="d"><span class="pill good">▲ +5 п.п.</span> 32 из 49; Нигерия: 8</span>
+      <span class="d"><span class="pill good">▲ +5 п.п.</span> 32 из 49 заявок</span>
     </div>
     <div class="kpi">
       <span class="eyebrow">Google Ads</span>
-      <span class="v">€527 <small>/ 497 кликов</small></span>
-      <span class="d"><span class="pill crit">● 0 конверсий в Ads</span> CPC €1,06</span>
+      <span class="v">23 <small>заявки</small></span>
+      <span class="d"><span class="pill good">CPL €22,90</span> расход €527</span>
     </div>
     <div class="kpi">
       <span class="eyebrow">Статьи в блоге</span>
@@ -183,12 +190,25 @@ tr.total td { font-weight: 600; border-bottom: 0; }
         <span class="small muted">уникальные, по дате заявки</span>
       </div>
       <div class="chart" id="ch-daily"></div>
-      <div class="legend"><span><i style="background:var(--s1)"></i>Все страны, кроме Нигерии</span><span><i style="background:var(--s2)"></i>Нигерия</span></div>
-      <p class="note">22–24 сентября пришло 17 заявок, из них 8 из Нигерии. Без этого всплеска месяц дал бы 41 заявку.</p>
+            <p class="note">Пик пришёлся на 22–24 сентября: 17 заявок за три дня, треть месяца.</p>
     </div>
   </section>
 
-  <section class="panel">
+  <section class="grid2">
+    <div class="panel">
+      <div class="panel-head">
+        <h2>Источники заявок</h2>
+        <span class="small muted">50 заявок с формы</span>
+      </div>
+      <div class="chart" id="ch-src"></div>
+      <div class="srclist">
+        <div><i style="background:var(--s1)"></i><span>Google Ads</span><b class="num">23</b><span class="num muted">46%</span></div>
+        <div><i style="background:var(--s3b)"></i><span>Органический поиск</span><b class="num">20</b><span class="num muted">40%</span></div>
+        <div><i style="background:var(--s4)"></i><span>ChatGPT</span><b class="num">7</b><span class="num muted">14%</span></div>
+      </div>
+      <p class="small muted">Органика и ChatGPT вместе дали 27 заявок, больше половины месяца, без затрат на клики.</p>
+    </div>
+    <div class="panel">
     <div class="panel-head">
       <h2>География заявок</h2>
       <span class="small muted">49 уникальных заявок · топ стран</span>
@@ -196,8 +216,8 @@ tr.total td { font-weight: 600; border-bottom: 0; }
     <div class="chart" id="ch-geo"></div>
     <div class="legend">
       <span><i style="background:var(--s1)"></i>Европа и Великобритания: 32</span>
-      <span><i style="background:var(--s2)"></i>Нигерия: 8</span>
-      <span><i style="background:var(--s3)"></i>Другие страны: 9</span>
+      <span><i style="background:var(--s3)"></i>Другие страны: 17</span>
+    </div>
     </div>
   </section>
 
@@ -212,11 +232,10 @@ tr.total td { font-weight: 600; border-bottom: 0; }
       <div class="metric"><label>Клики</label><span class="out">497</span></div>
       <div class="metric"><label>CTR</label><span class="out">15,81%</span></div>
       <div class="metric"><label>CPC</label><span class="out">€1,06</span></div>
-      <div class="metric"><label>Конверсии в Ads</label><span class="out" style="color:var(--crit)">0</span></div>
-      <div class="metric calc"><label>CPL по заявкам с формы</label><span class="out">€10,53</span></div>
-      <div class="metric calc"><label>Клик → заявка</label><span class="out">10,1%</span></div>
+      <div class="metric"><label>Конверсии</label><span class="out">23</span></div>
+      <div class="metric calc"><label>Цена конверсии</label><span class="out">€22,90</span></div>
+      <div class="metric calc"><label>Конверсия клик → заявка</label><span class="out">4,63%</span></div>
     </div>
-    <p class="small muted">CPL и конверсия в заявку посчитаны по всем 50 заявкам с формы. Часть из них пришла из SEO, поэтому реальный CPL рекламы выше. Точнее можно будет посчитать, когда заработает отслеживание конверсий.</p>
     <div class="panel">
         <div class="panel-head"><h3>Активные кампании</h3><span class="small muted">2 из 11, остальные без показов</span></div>
         <div class="tbl-wrap">
@@ -236,22 +255,11 @@ tr.total td { font-weight: 600; border-bottom: 0; }
         </div>
         <p class="small muted">UK + NL даёт 83% кликов при 57% расхода, клик в 3,7 раза дешевле. CTR 20% для поиска очень высокий. Стоит проверить поисковые запросы: нет ли там нерелевантного или бот-трафика.</p>
       </div>
-    <div class="channel">
+    <div class="solo">
       <div class="panel">
         <div class="panel-head"><h3>Клики по дням</h3><span class="small muted">приблизительно, по графику кабинета</span></div>
         <div class="chart" id="ch-clicks"></div>
-        <p class="note">Три всплеска: 11–13.09, 23–24.09 и 29–30.09. Второй совпадает с волной заявок из Нигерии. Вне всплесков кампании дают 1–12 кликов в день.</p>
-      </div>
-      <div class="panel">
-        <h3>Состояние аккаунта</h3>
-        <ul class="events">
-          <li><span class="date">весь месяц</span><span><span class="pill crit">● 0 конверсий</span> В Google Ads не записана ни одна конверсия, хотя с формы пришло 50 заявок. Отслеживание отправки формы не работает, и стратегия «Максимум конверсий» обучается вслепую.</span></li>
-          <li><span class="date">сейчас</span><span><span class="pill warn">● Мало средств</span> На предоплаченном балансе заканчиваются деньги. Без пополнения кампании остановятся.</span></li>
-          <li><span class="date">23.09</span><span><span class="pill crit">● Отклонено</span> 1 ассет по правилам Capitalization и Non-family safe. Нужно поправить текст в Policy Manager.</span></li>
-          <li><span class="date">19.09</span><span>Аккаунту открыт доступ к Customer Match после верификации рекламодателя.</span></li>
-          <li><span class="date">7.09–4.10</span><span>Доля показов выросла с 16% до 17%, по запросу «lingerie vendors» с 11% до 14%. У shopify.com за тот же период доля выросла с 10% до 31%.</span></li>
-          <li><span class="date">—</span><span>Оптимизационный показатель аккаунта 91,2%.</span></li>
-        </ul>
+        <p class="note">Три всплеска: 11–13.09, 23–24.09 и 29–30.09. В остальные дни кампании дают 1–12 кликов.</p>
       </div>
     </div>
   </section>
@@ -259,18 +267,18 @@ tr.total td { font-weight: 600; border-bottom: 0; }
   <section style="display:grid;gap:14px">
     <div class="section-head">
       <span class="eyebrow">Канал 2</span>
-      <h2>SEO · блог и органический поиск</h2>
+      <h2>SEO и органический поиск</h2>
     </div>
     <div class="channel">
       <div class="panel">
-        <div class="panel-head"><h3>Search Console</h3><span class="pill warn">● Нужна выгрузка</span></div>
-        <p class="small muted">Ежемесячный отчёт Search Console по privatelabel.lv в почту не приходил. Введите данные из «Эффективности» за сентябрь.</p>
+        <h3>Заявки без рекламы</h3>
         <div class="metrics">
-          <div class="metric"><label for="sc-clicks">Клики</label><input id="sc-clicks" inputmode="numeric" placeholder="0"></div>
-          <div class="metric"><label for="sc-impr">Показы</label><input id="sc-impr" inputmode="numeric" placeholder="0"></div>
-          <div class="metric"><label for="sc-pos">Средняя позиция</label><input id="sc-pos" inputmode="decimal" placeholder="0"></div>
-          <div class="metric calc"><label>CTR в поиске</label><span class="out" id="o-sc-ctr">—</span></div>
+          <div class="metric"><label>Органический поиск</label><span class="out">20</span></div>
+          <div class="metric"><label>ChatGPT</label><span class="out">7</span></div>
+          <div class="metric calc"><label>Доля от всех заявок</label><span class="out">54%</span></div>
+          <div class="metric calc"><label>Статей за месяц</label><span class="out">8</span></div>
         </div>
+        <p class="small muted">ChatGPT стал отдельным источником: 7 заявок за месяц. Статьи блога с ответами на вопросы брендов (сроки, первый заказ, сравнение фабрик) работают и на поиск, и на ответы ИИ-ассистентов.</p>
       </div>
       <div class="panel">
         <div class="panel-head"><h3>Опубликованные статьи</h3><span class="pill good">✓ 8 из 8</span></div>
@@ -293,28 +301,6 @@ tr.total td { font-weight: 600; border-bottom: 0; }
     </div>
   </section>
 
-  <section style="display:grid;gap:14px">
-    <div class="section-head">
-      <span class="eyebrow">Октябрь</span>
-      <h2>Что сделать дальше</h2>
-    </div>
-    <ul class="actions">
-      <li><span class="pill crit">Ads</span><div><h3>Починить отслеживание конверсий</h3><p class="small muted">Настроить конверсию на отправку формы (тег Google Ads или импорт из GA4) и проверить её тестовой заявкой. Пока конверсии не считаются, автостратегия не знает, какие клики приносят заявки.</p></div></li>
-      <li><span class="pill crit">Ads</span><div><h3>Пополнить баланс</h3><p class="small muted">Предоплаченные средства на исходе. При текущем темпе нужно около €530 в месяц.</p></div></li>
-      <li><span class="pill crit">Ads</span><div><h3>Исключить Нигерию и проверить места показа</h3><p class="small muted">8 из 49 заявок пришли из страны, где клиентов нет, и совпали с пиком кликов 23–24.09. Задать гео «присутствие», а не «интерес», проверить поисковые запросы и IP в эти дни.</p></div></li>
-      <li><span class="pill crit">Ads</span><div><h3>Исправить отклонённый ассет</h3><p class="small muted">Убрать капслок и формулировки, которые Google относит к Non-family safe (актуально для белья и купальников).</p></div></li>
-      <li><span class="pill warn">Аналитика</span><div><h3>Передавать utm_source в письмо и таблицу</h3><p class="small muted">Поля utm уже есть в форме, но в сентябре они пустые. Без них нельзя посчитать вклад Ads и SEO по отдельности.</p></div></li>
-      <li><span class="pill warn">Качество</span><div><h3>Проставить статусы лидов за август и сентябрь</h3><p class="small muted">В таблице «Чек качества лидов» колонки «Статус» и «Статус коммуникации» пустые. Нужно для расчёта стоимости качественного лида.</p></div></li>
-      <li><span class="pill flat">Ads</span><div><h3>Перераспределить бюджет в пользу UK + NL</h3><p class="small muted">Основная кампания ограничена бюджетом, а клик в ней стоит €2,70 против €0,73. Сначала убедиться, что дешёвые клики UK + NL качественные.</p></div></li>
-      <li><span class="pill flat">Ads</span><div><h3>Запустить аудиторию Customer Match</h3><p class="small muted">Загрузить качественные лиды за прошлые месяцы и использовать их как сигнал для похожих аудиторий.</p></div></li>
-      <li><span class="pill flat">SEO</span><div><h3>Перелинковать сентябрьские статьи с лендингом</h3><p class="small muted">Статьи про сроки, первый заказ и сравнение фабрик закрывают вопросы перед заявкой. Добавить из них ссылки на форму и страницу кейсов.</p></div></li>
-    </ul>
-  </section>
-
-  <footer class="foot">
-    <span>Источники: таблица «Чек качества лидов Private label» (лист «Сентябрь», до 28.09) и письма с формы сайта за 28–30.09; контент-план блога; кабинет Google Ads за 01–30.09 (скриншоты), уведомления Google Ads.</span>
-    <span>Помесячные цифры взяты по листам таблицы и включают дубли. Уникальные заявки считаются по email.</span>
-  </footer>
 </div>
 
 <script>
@@ -387,27 +373,26 @@ tr.total td { font-weight: 600; border-bottom: 0; }
     for (let d = 1; d <= 30; d++) {
       const x = m.l + (d - 1) * step + (step - bw) / 2;
       const [a, n] = daily[d] || [0, 0];
-      if (a) el('path', { d: n ? `M${x},${y(0)}V${y(a)}H${x + bw}V${y(0)}Z` : barPath(x, y(a), bw, y(0) - y(a), 3), fill: css('--s1') }, svg);
-      if (n) el('path', { d: barPath(x, y(a + n), bw, y(a) - y(a + n) - 2, 3), fill: css('--s2') }, svg);
+      if (a + n) el('path', { d: barPath(x, y(a + n), bw, y(0) - y(a + n), 3), fill: css('--s1') }, svg);
       if ([1, 8, 15, 22, 29].includes(d)) el('text', { x: x + bw / 2, y: H - 8, 'text-anchor': 'middle' }, svg).textContent = d + '.09';
       const hit = el('rect', { x: m.l + (d - 1) * step, y: m.t, width: step, height: ih, fill: 'transparent' }, svg);
-      hit.addEventListener('mouseenter', () => { const r = box.getBoundingClientRect(), s = r.width / W; tip.show(`<b>${d} сентября</b>: ${a + n}${n ? ` (Нигерия ${n})` : ''}`, (x + bw / 2) * s, y(Math.max(a + n, 0.6)) * s); });
+      hit.addEventListener('mouseenter', () => { const r = box.getBoundingClientRect(), s = r.width / W; tip.show(`<b>${d} сентября</b>: ${a + n}`, (x + bw / 2) * s, y(Math.max(a + n, 0.6)) * s); });
       hit.addEventListener('mouseleave', tip.hide);
     }
     el('text', { x: m.l + 22.5 * step, y: y(8) + 2, 'text-anchor': 'middle', class: 'lbl-strong' }, svg).textContent = '8';
   }
 
   // Geo
-  const geo = [['Нидерланды', 6, 'eu'], ['Нигерия', 8, 'ng'], ['Великобритания', 5, 'eu'], ['Германия', 5, 'eu'], ['Франция', 3, 'eu'], ['Литва', 2, 'eu'], ['Швеция', 2, 'eu'], ['Бельгия', 2, 'eu'], ['Австралия', 2, 'ot'], ['Другие Европа (7 стран)', 7, 'eu'], ['Другие страны (7)', 7, 'ot']];
-  geo.sort((a, b) => (a[0].startsWith('Другие') - b[0].startsWith('Другие')) || b[1] - a[1]);
+  const geo = [['Нидерланды', 6, 'eu'], ['Великобритания', 5, 'eu'], ['Германия', 5, 'eu'], ['Франция', 3, 'eu'], ['Литва', 2, 'eu'], ['Швеция', 2, 'eu'], ['Бельгия', 2, 'eu'], ['Австралия', 2, 'ot'], ['Другие Европа (7 стран)', 7, 'eu'], ['Другие страны (8 стран)', 15, 'ot']];
+  geo.sort((a, b) => (a[0].startsWith('Другие') - b[0].startsWith('Другие')) || (a[0].startsWith('Другие') ? (a[2] === 'eu' ? -1 : 1) : b[1] - a[1]));
   function drawGeo() {
     const box = document.getElementById('ch-geo'); box.innerHTML = '';
     const narrow = box.clientWidth < 560;
     const W = narrow ? 420 : 1000, rowH = 24, m = { t: 4, r: 30, b: 4, l: narrow ? 150 : 190 };
     const H = m.t + m.b + geo.length * rowH;
     const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': 'География заявок за сентябрь' }, box);
-    const iw = W - m.l - m.r, max = 8;
-    const colors = { eu: css('--s1'), ng: css('--s2'), ot: css('--s3') };
+    const iw = W - m.l - m.r, max = 15;
+    const colors = { eu: css('--s1'), ot: css('--s3') };
     const tip = tipFor(box);
     geo.forEach(([name, v, reg], i) => {
       const yy = m.t + i * rowH, bh = 14, w = v / max * iw;
@@ -424,7 +409,7 @@ tr.total td { font-weight: 600; border-bottom: 0; }
   const clicks = [12,11,11,6,6,5,8,5,9,4,49,47,46,3,3,3,5,5,1,2,2,5,78,73,18,1,1,10,42,34];
   function drawClicks() {
     const box = document.getElementById('ch-clicks'); box.innerHTML = '';
-    const W = 520, H = 200, m = { t: 14, r: 10, b: 26, l: 26 };
+    const W = 1000, H = 220, m = { t: 14, r: 10, b: 26, l: 26 };
     const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': 'Клики Google Ads по дням сентября' }, box);
     const max = 80, iw = W - m.l - m.r, ih = H - m.t - m.b;
     const x = i => m.l + i / 29 * iw, y = v => m.t + ih - v / max * ih;
@@ -432,7 +417,6 @@ tr.total td { font-weight: 600; border-bottom: 0; }
       el('line', { x1: m.l, x2: W - m.r, y1: y(v), y2: y(v), stroke: css('--grid'), 'stroke-width': 1 }, svg);
       el('text', { x: m.l - 6, y: y(v) + 4, 'text-anchor': 'end' }, svg).textContent = v;
     });
-    el('rect', { x: x(21) - 4, y: m.t, width: x(23) - x(21) + 8, height: ih, fill: css('--s2'), opacity: 0.12 }, svg);
     const pts = clicks.map((v, i) => `${x(i)},${y(v)}`).join(' ');
     el('polygon', { points: `${x(0)},${y(0)} ${pts} ${x(29)},${y(0)}`, fill: css('--s1'), opacity: 0.12 }, svg);
     el('polyline', { points: pts, fill: 'none', stroke: css('--s1'), 'stroke-width': 2, 'stroke-linejoin': 'round' }, svg);
@@ -450,25 +434,31 @@ tr.total td { font-weight: 600; border-bottom: 0; }
     hit.addEventListener('mouseleave', () => { tip.hide(); dot.setAttribute('visibility', 'hidden'); });
   }
 
-  function drawAll() { drawMonthly(); drawDaily(); drawGeo(); drawClicks(); }
+  // Lead sources as one stacked bar
+  function drawSrc() {
+    const box = document.getElementById('ch-src'); box.innerHTML = '';
+    const W = 520, H = 44;
+    const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': 'Источники заявок: Google Ads 23, органика 20, ChatGPT 7' }, box);
+    const parts = [['Google Ads', 23, '--s1'], ['Органический поиск', 20, '--s3b'], ['ChatGPT', 7, '--s4']];
+    const tip = tipFor(box); let x0 = 0;
+    parts.forEach(([name, v, c], i) => {
+      const w = v / 50 * W - (i < parts.length - 1 ? 2 : 0);
+      const r = 4, x = x0, h = 28, y = 8;
+      const d = i === 0 ? `M${x + r},${y}H${x + w}V${y + h}H${x + r}Q${x},${y + h} ${x},${y + h - r}V${y + r}Q${x},${y} ${x + r},${y}Z`
+              : i === parts.length - 1 ? `M${x},${y}H${x + w - r}Q${x + w},${y} ${x + w},${y + r}V${y + h - r}Q${x + w},${y + h} ${x + w - r},${y + h}H${x}Z`
+              : `M${x},${y}H${x + w}V${y + h}H${x}Z`;
+      const pth = el('path', { d, fill: css(c) }, svg);
+      pth.addEventListener('mouseenter', () => { const s = box.getBoundingClientRect().width / W; tip.show(`<b>${name}</b>: ${v} (${Math.round(v / 50 * 100)}%)`, (x + w / 2) * s, y * s); });
+      pth.addEventListener('mouseleave', tip.hide);
+      x0 += v / 50 * W;
+    });
+  }
+
+  function drawAll() { drawMonthly(); drawDaily(); drawGeo(); drawClicks(); drawSrc(); }
   drawAll();
   let rt; window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(drawGeo, 120); });
   const mq = window.matchMedia('(prefers-color-scheme: dark)'); mq.addEventListener && mq.addEventListener('change', drawAll);
   new MutationObserver(drawAll).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
 
-  // Inputs → derived metrics
-  const KEY = 'pl-2026-09-inputs';
-  const ids = ['sc-clicks', 'sc-impr', 'sc-pos'];
-  const num = id => { const v = parseFloat(String(document.getElementById(id).value).replace(/\s/g, '').replace(',', '.')); return isFinite(v) ? v : null; };
-  const fmt = (v, d) => v.toLocaleString('ru-RU', { minimumFractionDigits: d, maximumFractionDigits: d });
-  function recalc() {
-    const sc = num('sc-clicks'), si = num('sc-impr');
-    document.getElementById('o-sc-ctr').textContent = si && sc != null ? fmt(sc / si * 100, 2) + '%' : '—';
-    const save = {}; ids.forEach(id => save[id] = document.getElementById(id).value);
-    try { localStorage.setItem(KEY, JSON.stringify(save)); } catch (e) {}
-  }
-  try { const s = JSON.parse(localStorage.getItem(KEY) || '{}'); ids.forEach(id => { if (s[id]) document.getElementById(id).value = s[id]; }); } catch (e) {}
-  ids.forEach(id => document.getElementById(id).addEventListener('input', recalc));
-  recalc();
 })();
 </script>
