@@ -169,7 +169,7 @@ tr.total td { font-weight: 600; border-bottom: 0; }
     <div class="meta">
       <span class="tag">Период <b>01.09 – 30.09.2026</b></span>
       <span class="tag">Сравнение <b>с августом</b></span>
-      <span class="tag">Октябрь <b>1–14.10</b></span>
+      <span class="tag">Октябрь <b>1–20.10</b></span>
     </div>
   </header>
 
@@ -326,18 +326,18 @@ tr.total td { font-weight: 600; border-bottom: 0; }
   <section style="display:grid;gap:14px" id="october">
     <div class="section-head">
       <span class="eyebrow">Октябрь 2026 · промежуточно</span>
-      <h2>1–14 октября: заявки и LinkedIn</h2>
+      <h2>Октябрь: заявки 1–20.10 и LinkedIn 1–14.10</h2>
     </div>
     <div class="kpis">
       <div class="kpi">
         <span class="eyebrow">Заявки с формы</span>
-        <span class="v">17 <small>/ 15 уник.</small></span>
-        <span class="d"><span class="pill warn">▼ −29%</span> 1–14.09 было 21</span>
+        <span class="v">24 <small>/ 22 уник.</small></span>
+        <span class="d"><span class="pill warn">▼ −19%</span> 1–20.09 было 27</span>
       </div>
       <div class="kpi">
         <span class="eyebrow">Из Европы</span>
-        <span class="v">60%</span>
-        <span class="d">9 из 15 заявок</span>
+        <span class="v">64%</span>
+        <span class="d">14 из 22 заявок</span>
       </div>
       <div class="kpi">
         <span class="eyebrow">LinkedIn: диалоги</span>
@@ -352,10 +352,10 @@ tr.total td { font-weight: 600; border-bottom: 0; }
     </div>
     <div class="channel">
       <div class="panel">
-        <div class="panel-head"><h3>Заявки по странам</h3><span class="small muted">15 уникальных</span></div>
+        <div class="panel-head"><h3>Заявки по странам</h3><span class="small muted">1–20.10 · 22 уникальных</span></div>
         <div class="chart" id="ch-oct-geo"></div>
-        <div class="legend"><span><i style="background:var(--s1)"></i>Европа и Великобритания: 9</span><span><i style="background:var(--s3)"></i>Другие страны: 6</span></div>
-        <p class="small muted">За две недели заявок меньше, чем за те же дни сентября. Повторные заявки (одни и те же email из Индии и Бангладеш) посчитаны один раз.</p>
+        <div class="legend"><span><i style="background:var(--s1)"></i>Европа и Великобритания: 14</span><span><i style="background:var(--s3)"></i>Другие страны: 8</span></div>
+        <p class="small muted">За 20 дней заявок меньше, чем за те же дни сентября. 15–17 октября пришло 7 новых заявок, из них 5 из Европы. Повторные заявки (одни и те же email из Индии и Бангладеш) посчитаны один раз. Последняя заявка в таблице от 17.10.</p>
       </div>
       <div class="panel">
         <div class="panel-head"><h3>LinkedIn</h3><span class="small muted">1–14 октября</span></div>
@@ -528,13 +528,13 @@ tr.total td { font-weight: 600; border-bottom: 0; }
   }
 
   // October 1–14 countries (unique leads)
-  const octGeo = [['Великобритания', 1, 'eu'], ['Франция', 1, 'eu'], ['Германия', 1, 'eu'], ['Бельгия', 1, 'eu'], ['Дания', 1, 'eu'], ['Швеция', 1, 'eu'], ['Швейцария', 1, 'eu'], ['Словакия', 1, 'eu'], ['Словения', 1, 'eu'], ['США', 2, 'ot'], ['Индия', 2, 'ot'], ['Бангладеш', 1, 'ot'], ['Сент-Люсия', 1, 'ot']];
+  const octGeo = [['Великобритания', 1, 'eu'], ['Франция', 1, 'eu'], ['Германия', 1, 'eu'], ['Бельгия', 1, 'eu'], ['Дания', 1, 'eu'], ['Швеция', 1, 'eu'], ['Швейцария', 1, 'eu'], ['Словакия', 1, 'eu'], ['Словения', 1, 'eu'], ['Румыния', 1, 'eu'], ['США', 2, 'ot'], ['Индия', 2, 'ot'], ['Бангладеш', 1, 'ot'], ['Сент-Люсия', 1, 'ot'], ['Канада', 1, 'ot'], ['Гваделупа', 1, 'ot']];
   function drawOctGeo() {
     const box = document.getElementById('ch-oct-geo'); box.innerHTML = '';
-    const rows = [[(box.clientWidth || 520) < 420 ? 'Европа + UK' : 'Европа и Великобритания', 9, 'eu'], ['США', 2, 'ot'], ['Индия', 2, 'ot'], ['Бангладеш', 1, 'ot'], ['Сент-Люсия', 1, 'ot']];
+    const rows = [[(box.clientWidth || 520) < 420 ? 'Европа + UK' : 'Европа и Великобритания', 14, 'eu'], ['США', 2, 'ot'], ['Индия', 2, 'ot'], ['Бангладеш', 1, 'ot'], ['Канада', 1, 'ot'], ['Сент-Люсия', 1, 'ot'], ['Гваделупа', 1, 'ot']];
     const W = box.clientWidth || 520, rowH = 26, m = { t: 4, r: 30, b: 4, l: W < 420 ? 110 : 180 };
-    const H = m.t + m.b + rows.length * rowH, iw = W - m.l - m.r, max = 9;
-    const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': 'Заявки 1–14 октября по странам' }, box);
+    const H = m.t + m.b + rows.length * rowH, iw = W - m.l - m.r, max = 14;
+    const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': 'Заявки 1–20 октября по странам' }, box);
     const tip = tipFor(box);
     const euList = octGeo.filter(g => g[2] === 'eu').map(g => g[0]).join(', ');
     rows.forEach(([name, v, reg], i) => {
@@ -543,7 +543,7 @@ tr.total td { font-weight: 600; border-bottom: 0; }
       el('path', { d: hbarPath(m.l, yy + 3, w, bh, 4), fill: css(reg === 'eu' ? '--s1' : '--s3') }, svg);
       el('text', { x: m.l + w + 6, y: yy + bh / 2 + 7, class: 'lbl-strong' }, svg).textContent = v;
       const hit = el('rect', { x: 0, y: yy, width: W, height: rowH, fill: 'transparent' }, svg);
-      hit.addEventListener('mouseenter', () => { const s = box.getBoundingClientRect().width / W; tip.show(reg === 'eu' ? `<b>${v} стран по 1 заявке</b>` : `<b>${name}</b>: ${v}`, (m.l + w / 2) * s, (yy + 3) * s); });
+      hit.addEventListener('mouseenter', () => { const s = box.getBoundingClientRect().width / W; tip.show(reg === 'eu' ? `<b>Европа и Великобритания</b>: ${v} <br>Германия 3, Бельгия 2, UK 2, ещё 7 стран по 1` : `<b>${name}</b>: ${v}`, (m.l + w / 2) * s, (yy + 3) * s); });
       hit.addEventListener('mouseleave', tip.hide);
     });
     box.title = 'Европа: ' + euList;
