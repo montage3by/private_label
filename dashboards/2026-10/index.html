@@ -149,6 +149,7 @@ tr.total td { font-weight: 600; border-bottom: 0; }
 .worklist { margin: 0; padding-left: 18px; display: grid; gap: 6px; font-size: 14px; color: var(--ink-2); }
 a.tag { text-decoration: none; color: var(--ink); }
 a.tag:hover, a.tag:focus-visible { border-color: var(--s1); color: var(--s1); }
+.split.big { height: 22px; } .split.big i:first-child { border-radius: 6px 0 0 6px; } .split.big i:last-child { border-radius: 0 6px 6px 0; }
 .foot { font-size: 12px; color: var(--ink-3); display: grid; gap: 4px; border-top: 1px solid var(--line); padding-top: 16px; }
 
 @media (max-width: 860px) {
@@ -192,8 +193,8 @@ a.tag:hover, a.tag:focus-visible { border-color: var(--s1); color: var(--s1); }
     </div>
     <div class="kpi">
       <span class="eyebrow">Google Ads</span>
-      <span class="v">€875 <small>/ 318 кликов</small></span>
-      <span class="d"><span class="pill crit">● Конверсии не считаются</span> CPC €2,75</span>
+      <span class="v">23 <small>заявки</small></span>
+      <span class="d"><span class="pill warn">CPL €38,05</span> расход €875</span>
     </div>
     <div class="kpi">
       <span class="eyebrow">Статьи в блоге</span>
@@ -225,14 +226,14 @@ a.tag:hover, a.tag:focus-visible { border-color: var(--s1); color: var(--s1); }
     <div class="panel">
       <div class="panel-head">
         <h2>Источники заявок</h2>
-        <span class="pill warn">● Уточняется</span>
+        <span class="small muted">38 заявок с формы</span>
       </div>
+      <div class="split big" aria-label="Google Ads 23, SEO 15"><i style="width:60.5%;background:var(--s1)"></i><i style="width:39.5%;background:var(--s3b)"></i></div>
       <div class="srclist">
-        <div><i style="background:var(--s1)"></i><span>Google Ads</span><b class="num">—</b><span class="num muted"></span></div>
-        <div><i style="background:var(--s3b)"></i><span>SEO и органика</span><b class="num">—</b><span class="num muted"></span></div>
-        <div><i style="background:var(--s4)"></i><span>Другие источники</span><b class="num">—</b><span class="num muted"></span></div>
+        <div><i style="background:var(--s1)"></i><span>Google Ads</span><b class="num">23</b><span class="num muted">61%</span></div>
+        <div><i style="background:var(--s3b)"></i><span>SEO и органика</span><b class="num">15</b><span class="num muted">39%</span></div>
       </div>
-      <p class="small muted">Всего 38 заявок с формы, 35 уникальных. Разбивка по каналам будет добавлена после сверки. Конверсии в Google Ads в октябре настроены некорректно, поэтому кабинет не показывает, сколько заявок пришло с рекламы.</p>
+      <p class="small muted">Google Ads дал столько же заявок, сколько в сентябре (23), но каждая стоила дороже: €38,05 против €22,90. Из SEO и органики пришло 15 заявок, в сентябре органика и ChatGPT вместе дали 28.</p>
     </div>
     <div class="panel">
     <div class="panel-head">
@@ -258,8 +259,8 @@ a.tag:hover, a.tag:focus-visible { border-color: var(--s1); color: var(--s1); }
       <div class="metric"><label>Клики</label><span class="out">318</span><span class="dl down">−36%</span></div>
       <div class="metric"><label>CTR</label><span class="out">7,86%</span><span class="dl down">в сент. 15,81%</span></div>
       <div class="metric"><label>CPC</label><span class="out">€2,75</span><span class="dl down">в сент. €1,06</span></div>
-      <div class="metric"><label>Конверсии в кабинете</label><span class="out" style="color:var(--crit)">0</span><span class="dl">настроены некорректно</span></div>
-      <div class="metric calc"><label>Расход на 1 заявку (все каналы)</label><span class="out">€23,03</span><span class="dl">€875 / 38 заявок</span></div>
+      <div class="metric"><label>Заявки с Google Ads</label><span class="out">23</span><span class="dl">в кабинете 0: конверсии настроены некорректно</span></div>
+      <div class="metric calc"><label>Стоимость заявки (CPL)</label><span class="out">€38,05</span><span class="dl down">в сент. €22,90</span></div>
       <div class="metric calc"><label>Оптимизационный показатель</label><span class="out">79,9%</span><span class="dl down">в сент. 91,2%</span></div>
     </div>
     <div class="panel">
@@ -284,7 +285,7 @@ a.tag:hover, a.tag:focus-visible { border-color: var(--s1); color: var(--s1); }
     <div class="panel">
       <div class="panel-head"><h3>Что требует исправления в аккаунте</h3><span class="pill crit">● 3 проблемы</span></div>
       <ul class="events">
-        <li><span class="date">Конверсии</span><span><span class="pill crit">● Некорректно</span> Отслеживание конверсий настроено неправильно: за месяц 0 конверсий при 38 заявках с сайта. Google помечает обе активные кампании «Conversion tracking setup is incomplete». Без конверсий стратегия ставок не понимает, какие клики приводят к заявкам.</span></li>
+        <li><span class="date">Конверсии</span><span><span class="pill crit">● Некорректно</span> Отслеживание конверсий настроено неправильно: в кабинете 0 конверсий, хотя с рекламы пришло 23 заявки. Google помечает обе активные кампании «Conversion tracking setup is incomplete». Без конверсий стратегия ставок не понимает, какие клики приводят к заявкам.</span></li>
         <li><span class="date">Бюджет</span><span><span class="pill warn">● Ограничена</span> Основная кампания работает с пометкой «Limited by budget», а UK + NL почти не получает показов.</span></li>
         <li><span class="date">Ассеты</span><span><span class="pill warn">● Не хватает</span> В основной кампании нет ассета с формой для лидов (Lead form asset is missing).</span></li>
       </ul>
@@ -308,7 +309,9 @@ a.tag:hover, a.tag:focus-visible { border-color: var(--s1); color: var(--s1); }
         <div class="panel-head"><h3>Работы за месяц</h3></div>
         <div class="metrics">
           <div class="metric"><label>Статьи в блоге</label><span class="out">9</span></div>
+          <div class="metric"><label>Заявки из SEO</label><span class="out">15</span></div>
           <div class="metric"><label>Ритм публикаций</label><span class="out">2–3 в неделю</span></div>
+          <div class="metric calc"><label>Доля от всех заявок</label><span class="out">39%</span></div>
         </div>
         <h3>Внутренняя оптимизация</h3>
         <ul class="worklist">
